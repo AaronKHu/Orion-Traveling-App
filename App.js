@@ -1,5 +1,7 @@
+//Didn't properly install NavigationContainer and Vector icons since couldn't access android folder
+
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Home from './components/Home';
 import Details from './components/Details';
 import Liked from './components/Liked';
@@ -9,7 +11,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 //Everything on Home page
@@ -27,9 +29,11 @@ const TabNavigator = () => {
 
 const App = () => {
   return (
-    <View>
-        <Text>App.js</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="TabNavigator" component={TabNavigator} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
